@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
-import Badge from '@mui/material/Badge'; // badhe is from material ui mui
+import Badge from '@mui/material/Badge'; // badge is from material ui mui
 import Nav from 'react-bootstrap/Nav'
 import Menu from '@mui/material/Menu';
 // import MenuItem from '@mui/material/MenuItem';
@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {Table } from 'react-bootstrap';
 // import './style.css'
 import { DLT } from '../redux/actions/actions';
+import { Typography } from '@mui/material';
 
 
 const Header = () => {
@@ -21,7 +22,7 @@ const Header = () => {
 
 //will show all  objects when we click [] array and now we will add gedata inside badge with length property,so that we can know how many numbers of food items are added.
 const getdata=useSelector((state)=>state.cartreducer.carts)
-console.log(getdata)
+// console.log(getdata)
 
 const dispatch = useDispatch()
 // now we will trigger/call  DLT function of reducer 
@@ -45,15 +46,14 @@ const[price,setPrice]=useState(0)
   
   const total = ()=>{
     let price=0
-    getdata.map((ele,k)=>{
-      // key={k}
+    getdata.map((ele)=>{
       price=ele.price * ele.qnty + price //the price variable will store the price of all the data in the object
     })
     setPrice(price)
   }
-
+  
   useEffect(()=>{
-    total()
+    total() 
     //whenever there will be changes in add to cart then total function will be rendered
   },[total]) 
 
@@ -117,12 +117,12 @@ const[price,setPrice]=useState(0)
           </tr>
         </thead>
         <tbody>
-          {/* mapping of data which will be added to cart */}
           {
-            getdata.map((e)=>{
+          // {/* mapping of data which will be added to cart */}
+            getdata.map((e,index)=>{
               return (
-                <>
-                <tr>
+                // <>
+                <tr key={index}>
                   <td>
                     {/* <img src={e.imgdata} alt="" style={{width:"5rem",height:"5rem"}}  /> */}
                     
@@ -152,11 +152,11 @@ const[price,setPrice]=useState(0)
                       <i className='fas fa-trash largetrash'></i>
                   </td>
                 </tr>
-                </>
-              )
-            })
-          }
-          <p className='text-center'>Total : ₹{price}</p>
+                // </>
+                )
+              })
+            }
+            <p className='text-center'>Total : ₹{price}</p>
         </tbody>
       </Table>
     </div> 
@@ -164,12 +164,13 @@ const[price,setPrice]=useState(0)
   <div className='card_details d-flex justify-content-center align-items-center' style={{ height:"2.5rem", width:"16rem",margin:5,position:"relative"}}>
                     <i className='fas fa-close smallclose'
                     onClick={handleClose}
-                     style={{position:"absolute",top:-10,right:"3px",fontSize:20,cursor:"pointer"}}></i>
-                    <p style={{fontSize:18,top:"-0.9rem",position:"absolute"}}>Your cart is empty
+                     style={{position:"absolute",top:-10,right:"3px",fontSize:20,cursor:"pointer",display:"block"}}></i>
+                    
+                    <Typography style={{fontSize:16,top:"-0.9rem",position:"absolute"}}>Your cart is empty
                     <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Foods_-_Idil_Keysan_-_Wikimedia_Giphy_stickers_2019.gif" 
                     alt="https://upload.wikimedia.org/wikipedia/commons/a/a6/Foods_-_Idil_Keysan_-_Wikimedia_Giphy_stickers_2019.gif" 
-                    className='emptycart_img' 
-                    style={{width:"4rem",top:"1px",position:"relative"}} /> </p>
+                    // className='emptycart_img' 
+                    style={{width:"4rem",top:"1px",position:"relative"}} /> </Typography>
                    </div>   
 
   }

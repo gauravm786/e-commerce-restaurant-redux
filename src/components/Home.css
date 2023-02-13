@@ -3,7 +3,7 @@
 /* https://cdn.ning.com/wp-content/uploads/2019/05/create-food-website.jpg */
 
 .box{
-    height: 92%;
+    height: 100%;
     width: 100% ;
     /* padding: 20px; */
     /* margin-top: 25px; */
@@ -20,16 +20,105 @@
 
 .text{
     top: 27%;
-    left: 33%;
-    position: absolute;    
+    /* left: 33%; */
+    position: relative;    
+    text-align: center;
+    font-size: 32px;
 }
 .text1{
-    top: 46%;
-    left: 21%;
-    position: absolute;
+    top: 36%;
+    /* left: 21%; */
+    position: relative;
+    text-align: center;
+    font-size: 24px;
 }
 .text2{
-    top: 64%;
-    left: 35%;
-    position: absolute;
+    top: 46%;
+    /* left: 35%; */
+    position: relative;
+    text-align: center;
+    font-size: 24px;
+}
+
+@media screen and (min-width:0px) and (max-width:600px){
+    .text{
+        position: relative;
+        text-align: center;
+        font-size: 18px;
+        width:62% ;
+        /* border: 1px solid black; */
+        line-height: 20px;
+        margin:1.5rem auto;
+
+    }
+    .text1{
+        /* left: 21%; */
+        position: relative;
+        text-align: center;
+        font-size: 18px;
+        width:55% ;
+        /* border: 1px solid black; */
+        line-height: 20px;
+        margin:3vh auto;
+    }
+    .text2{
+        /* left: 35%; */
+        position: relative;
+        text-align: center;
+        font-size: 18px;
+        width:55% ;
+        /* border: 1px solid black; */
+        line-height: 20px;
+        margin:3vh auto;
+    }
+    
+}
+
+@media screen and (min-width:600px) and (max-width:900px){
+    .text{
+        top: 29%;
+        /* left: 33%; */
+        position: relative;    
+        text-align: center;
+        font-size: 32px;
+    }
+    .text1{
+        top: 41%;
+        /* left: 21%; */
+        position: relative;
+        text-align: center;
+        font-size: 24px;
+    }
+    .text2{
+        top: 55%;
+        /* left: 35%; */
+        position: relative;
+        text-align: center;
+        font-size: 24px;
+    }
+}
+
+@media screen and (min-width:900px) and (max-width:1200px){
+    .text{
+        top: 29.5%;
+        /* left: 33%; */
+        position: relative;    
+        text-align: center;
+        font-size: 32px;
+    }
+    .text1{
+        top: 43.5%;
+        /* left: 21%; */
+        position: relative;
+        text-align: center;
+        font-size: 24px;
+    }
+    .text2{
+        top: 57%;
+        /* left: 35%; */
+        position: relative;
+        text-align: center;
+        font-size: 24px;
+    }
+    
 }

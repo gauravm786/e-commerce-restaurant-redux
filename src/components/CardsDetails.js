@@ -73,6 +73,7 @@
 
 //now we will get data on the webpage by mapping
 
+import { Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import Table from 'react-bootstrap/Table'
 import { useDispatch, useSelector } from 'react-redux';
@@ -83,7 +84,7 @@ import { DLT,ADD,REMOVE } from '../redux/actions/actions';
 const CardsDetails = () => {
 
 const[data,setData]=useState([])  
-console.log(data)
+// console.log(data)
 
 //url id
 //  to get the id,we use useparams hook from react-router-dom
@@ -143,17 +144,17 @@ const history = useNavigate(); //this history function will be used in  dlt func
       <section className='container mt-3  ' >
         <div className='iteamsdetails '>
           {
-            data.map((ele,i)=>{
+            data.map((ele,index)=>{
               return(
                 <>
-                <div className="items_img" >
+                <div className="items_img" key={index} >
           <img src= {ele.imgdata}alt=" "/>
         </div>
 
         <div className="details">
-          <>
+          {/* <> */}
           <Table>
-            <tr key={i}>
+            <tr >
               <td>
                 <p> <strong>Item</strong>:<br></br>{ele.rname}</p>
                 <p> <strong>Price</strong> : ₹{ele.price}</p>
@@ -164,8 +165,10 @@ const history = useNavigate(); //this history function will be used in  dlt func
                 <p> <strong>Total</strong> : ₹ {ele.price * ele.qnty}</p>
 
                 {/* increment and decrement of Quantity */}
-                <div className='mt-5 d-flex justify-content-between align-items-center'
-                style={{width:100,cursor:"pointer",backgroundColor:'#757575'}}>
+                <Typography left={{xs:"60%",sm:"0%"}} position="relative"
+                 className='mt-5 d-flex justify-content-between align-items-center'
+                style={{width:100,cursor:"pointer",backgroundColor:'#757575',margin:"auto"
+                }}>
                   {/* <span style={{fontSize:24}} onClick={()=>remove(ele)}>-</span> */}
 
                   {/* if the quantity becomes zero then automatically remove the item from cart  */}
@@ -176,7 +179,7 @@ const history = useNavigate(); //this history function will be used in  dlt func
                   <span style={{fontSize:22}}>{ele.qnty}</span>
                   {/* here whole object ele will passed */}
                   <span style={{fontSize:24}} onClick={()=>send(ele)}>+</span>
-                </div>
+                </Typography>
               </td>
               <td>
                 <p> <strong>Rating :</strong> <span style={{background:"green",color:"#fff",padding:"2px 5px",borderRadius:"5px"}}> {ele.rating} ★</span>  </p>
@@ -186,7 +189,7 @@ const history = useNavigate(); //this history function will be used in  dlt func
               </td>
             </tr>
           </Table>
-          </>
+          {/* </> */}
         </div>                
                 </>
               )

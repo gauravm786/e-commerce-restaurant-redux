@@ -114,29 +114,29 @@ const send =(e)=>{
 
     return (
         <div className='container mt-3' >
-        <h2 className='text-center'>Welcome to Heaven in Multicuisine 🍽️</h2>
+        {/* <h2 className='text-center'>Welcome to Heaven in Multicuisine 🍽️</h2> */}
 
     {/* card is from react bootstrap      */}
     <div className='row d-flex justify-content-center align-items-center' >
         {
-            data.map((element,id)=>{
+            data.map((element)=>{
                 return (
-                    <>
-    <Card style={{ width:'22rem',border:"none" }} className="mx-2 mt-4 ">
+                    // <>
+    <Card style={{ width:'22rem',border:"none" }} className="mx-2 mt-4 " key={element.id}>
     <Card.Img variant="top" src={element.imgdata} style={{height:"16rem"}} />
     <Card.Body>
     <Card.Title>{element.rname}</Card.Title>
     <Card.Text>
         Price: ₹ {element.price}
     </Card.Text>
-    <div className='button_div d-flex justify-content-center' key={id}>
+    <div className='button_div d-flex justify-content-center'>
     <Button variant="primary" className='col-lg'
     //element contains all the objects of our cart and on whatever food item we click,we will get data with the help of element 
     onClick={()=>send(element)}>Add to Cart</Button>
     </div>
     </Card.Body>
     </Card>    
-                    </>
+                    // </>
                 )
             })
         }
